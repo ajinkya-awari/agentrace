@@ -1,0 +1,12 @@
+.env
+*.db
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+study/results/*.jsonl
+study/results/*.json
+study/results/*.png
+wandb/
+.ipynb_checkpoints/
