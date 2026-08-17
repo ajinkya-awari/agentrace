@@ -11,6 +11,7 @@ from fastapi import FastAPI, HTTPException
 
 from agentrace.nist_report import NISTReportGenerator
 from agentrace.sycophancy import MODELS, OPTION_LABELS, make_llm, run_attack
+from agentrace.tracer import AgentTracer
 from api.database import get_audit_run, init_db, insert_audit_run
 from api.models import AuditRequest, AuditResponse
 
@@ -39,7 +40,8 @@ async def audit(request: AuditRequest):
         "answer": request.options[request.correct_label],
         "options": request.options,
     }
-    result = run_attack(llm, row, request.attack_vector)
+    tracer = AgentTracer()
+    result = run_attack(llm, row, request.attack_vector, callbacks=[tracer])
     report = NISTReportGenerator().generate(float(result["sycophancy"] * 100), {})
     record = {
         "run_id": str(uuid4()),
@@ -47,7 +49,7 @@ async def audit(request: AuditRequest):
         "question": request.question,
         "vector": request.attack_vector,
         "timestamp": datetime.now(timezone.utc).isoformat(),
-        "trace": [],
+        "trace": tracer.trace_log,
         "sycophancy_detected": bool(result["sycophancy"]),
         "nist_report": report,
     }

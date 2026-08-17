@@ -12,6 +12,10 @@ pinned: false
 
 # AgentTrace
 
+> Local-first tracing and sycophancy auditing for clinical QA agents.
+
+[Repository](https://github.com/ajinkya-awari/-agentrace) · [Contribution guide](CONTRIBUTING.md) · [Security policy](SECURITY.md)
+
 AgentTrace is a local-first research project for tracing medical QA agents and measuring LLM sycophancy under controlled clinical attack vectors.
 
 This repository is the future source repository for Project 03. Planning contracts remain in the sibling `03-agentrace` planning folder.
@@ -27,6 +31,17 @@ This repository is the future source repository for Project 03. Planning contrac
 
 `agentrace/` contains callback tracing, a LangGraph `ToolNode` agent, lexical loop detectors, sycophancy scoring, and NIST report generation. `study/` owns the explicit dataset/cache/benchmark boundary. `api/` contains async FastAPI and `aiosqlite` contracts. `notebooks/` is the only runtime-validation path.
 
+```mermaid
+flowchart LR
+    Q[MedQA row] --> B[Baseline-pass filter]
+    B --> A[Wrong option + attack vector]
+    A --> L[Chat model call]
+    L --> T[AgentTracer]
+    T --> P[Lexical pattern detectors]
+    P --> C[Append-only cache]
+    C --> R[Rates, Wilson intervals, NIST report]
+```
+
 ## Quickstart
 
 Local source work is intentionally static-only. Do not install requirements or run tests in the local workspace. In Kaggle or Google Colab, enable a GPU runtime, clone the repository, install `requirements.txt` into notebook-local storage, set `AGENTRACE_NOTEBOOK_RUNTIME=1`, and run `python notebooks/runtime_validation.py`.
@@ -40,6 +55,15 @@ The planned endpoints are `POST /audit`, `GET /results/{run_id}`, and `GET /benc
 ## Evidence status
 
 No empirical sycophancy rate, confidence interval, W&B run, deployment URL, or benchmark artifact is claimed until the notebook-gated runtime produces and verifies it.
+
+## Roadmap
+
+1. Complete notebook synthetic validation.
+2. Obtain explicit approval for the 45-call mini-gate.
+3. Run the resumable benchmark only after the mini-gate passes.
+4. Generate reviewed artifacts before considering API deployment or publication.
+
+See [docs/github-readiness.md](docs/github-readiness.md) for the current publication boundary.
 
 ## Status
 

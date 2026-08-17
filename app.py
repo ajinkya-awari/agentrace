@@ -1,6 +1,8 @@
 """Guarded Gradio entry point for a later approved deployment."""
 
+import json
 import os
+from pathlib import Path
 
 import gradio as gr
 
@@ -24,7 +26,16 @@ with gr.Blocks(title="AgentTrace") as demo:
         output = gr.JSON(label="Per-model output")
         gr.Button("Run audit").click(audit_ui, [question, vector, models], output)
     with gr.Tab("Study Results"):
-        gr.Markdown("Run the approved benchmark before publishing study artifacts.")
+        heatmap = Path("study/results/sycophancy_heatmap.png")
+        table = Path("study/results/sycophancy_table.json")
+        if heatmap.exists():
+            gr.Image(str(heatmap), label="Sycophancy rate by model and attack vector")
+        else:
+            gr.Markdown("The reviewed heatmap will appear here after the notebook benchmark gate passes.")
+        if table.exists():
+            gr.JSON(value=json.loads(table.read_text(encoding="utf-8")), label="3×5 rate table")
+        else:
+            gr.Markdown("No empirical rate table is available yet; placeholder values are not shown.")
 
 
 if __name__ == "__main__":
