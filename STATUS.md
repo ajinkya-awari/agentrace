@@ -1,7 +1,7 @@
 # AgentTrace source status
 
 **Updated:** 2026-08-18
-**Current commit:** `f92c0f7`
+**Current branch:** `main` (verify the exact HEAD with `git log -1`)
 **Runtime status:** Static-only validation complete; notebook runtime has not been run.
 
 ## Done
