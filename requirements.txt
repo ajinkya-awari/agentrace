@@ -1,0 +1,14 @@
+langgraph>=1.2,<2.0
+langchain-core>=1.5,<2.0
+langchain-groq>=1.1,<2.0
+aiosqlite>=0.20
+gradio==6.22.0
+fastapi
+uvicorn
+pydantic>=2
+wandb
+datasets
+matplotlib
+seaborn
+pytest
+python-dotenv

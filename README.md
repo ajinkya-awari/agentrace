@@ -1,3 +1,15 @@
+---
+title: AgentTrace
+emoji: ":microscope:"
+colorFrom: blue
+colorTo: indigo
+sdk: gradio
+sdk_version: 6.22.0
+app_file: app.py
+python_version: "3.11"
+pinned: false
+---
+
 # AgentTrace
 
 AgentTrace is a local-first research project for tracing medical QA agents and measuring LLM sycophancy under controlled clinical attack vectors.
@@ -13,4 +25,4 @@ This repository is the future source repository for Project 03. Planning contrac
 
 ## Status
 
-Repository initialized. Implementation has not started.
+Repository initialized; local source scaffold and notebook-gated contract tests are in progress. Runtime validation has not been run.
