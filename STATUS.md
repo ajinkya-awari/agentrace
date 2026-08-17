@@ -1,7 +1,7 @@
 # AgentTrace source status
 
 **Updated:** 2026-08-18
-**Current commit:** `e072917`
+**Current commit:** `f92c0f7`
 **Runtime status:** Static-only validation complete; notebook runtime has not been run.
 
 ## Done
@@ -9,7 +9,7 @@
 - Local-first source scaffold and safety boundaries are present.
 - Tracing, lexical detectors, sycophancy scoring, cache/study guards, NIST mapping, async API boundary, and guarded Gradio UI are implemented.
 - Contract tests are written but intentionally unexecuted in the local workspace.
-- README, contribution/security policy, GitHub templates, generated-results policy, methodology, and notebook instructions are present.
+- README, contribution/security policy, GitHub templates, generated-results policy, docs index, methodology, and notebook instructions are present.
 - Static verification passed: AST parsing for 24 Python files, expected-file inventory, credential scan, and `sqlite3` import scan.
 
 ## Next
