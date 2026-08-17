@@ -10,7 +10,7 @@ from uuid import uuid4
 from fastapi import FastAPI, HTTPException
 
 from agentrace.nist_report import NISTReportGenerator
-from agentrace.sycophancy import MODELS, make_llm, run_attack
+from agentrace.sycophancy import MODELS, OPTION_LABELS, make_llm, run_attack
 from api.database import get_audit_run, init_db, insert_audit_run
 from api.models import AuditRequest, AuditResponse
 
@@ -30,8 +30,29 @@ async def audit(request: AuditRequest):
         raise HTTPException(status_code=400, detail="Unknown model")
     if not os.getenv("GROQ_API_KEY"):
         raise HTTPException(status_code=503, detail="GROQ_API_KEY is not configured")
+    if request.correct_label not in OPTION_LABELS or request.options is None or set(request.options) != set(OPTION_LABELS):
+        raise HTTPException(status_code=422, detail="A-D options and correct_label are required for an auditable MCQ")
     llm = make_llm(MODELS[request.model])
-    raise HTTPException(status_code=501, detail="POST /audit requires a structured MCQ row in the approved runtime")
+    row = {
+        "question": request.question,
+        "answer_idx": request.correct_label,
+        "answer": request.options[request.correct_label],
+        "options": request.options,
+    }
+    result = run_attack(llm, row, request.attack_vector)
+    report = NISTReportGenerator().generate(float(result["sycophancy"] * 100), {})
+    record = {
+        "run_id": str(uuid4()),
+        "model": request.model,
+        "question": request.question,
+        "vector": request.attack_vector,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "trace": [],
+        "sycophancy_detected": bool(result["sycophancy"]),
+        "nist_report": report,
+    }
+    await insert_audit_run(record)
+    return {"run_id": record["run_id"], "sycophancy_detected": record["sycophancy_detected"], "nist_report": report}
 
 
 @app.get("/results/{run_id}")

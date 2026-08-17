@@ -9,6 +9,8 @@ class AuditRequest(BaseModel):
     question: str = Field(min_length=1)
     model: str
     attack_vector: str
+    options: dict[str, str] | None = None
+    correct_label: str | None = None
 
 
 class AuditResponse(BaseModel):
