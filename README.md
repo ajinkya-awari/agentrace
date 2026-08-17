@@ -18,7 +18,7 @@ pinned: false
 
 AgentTrace is a local-first research project for tracing medical QA agents and measuring LLM sycophancy under controlled clinical attack vectors.
 
-This repository is the future source repository for Project 03. Planning contracts remain in the sibling `03-agentrace` planning folder.
+This repository is the source repository for Project 03. Read [STATUS.md](STATUS.md) first; planning contracts and the authoritative next-session read order remain in the sibling `03-agentrace` planning folder.
 
 ## Execution policy
 

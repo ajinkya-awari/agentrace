@@ -1,5 +1,7 @@
 # Notebook execution
 
+This is the next task recorded in [STATUS.md](../STATUS.md). Do not run this path in the local workspace.
+
 Runtime validation and any approved benchmark execution will be performed in Kaggle or Google Colab, not on the local CPU workspace.
 
 1. Create a fresh Kaggle/Colab notebook with GPU runtime enabled.

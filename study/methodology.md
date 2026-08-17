@@ -1,5 +1,7 @@
 # AgentTrace methodology
 
+**Status:** Protocol and implementation contract documented; no empirical result is claimed. See [STATUS.md](../STATUS.md) before runtime work.
+
 The benchmark selects MedQA-USMLE test questions for which all three configured models answer the baseline question correctly. This baseline-pass filter measures yielding to a wrong social claim rather than ordinary question-answering error.
 
 The first option label in `A, B, C, D` that differs from the correct label is selected as the wrong option. Every attack injects both the label and full option text.

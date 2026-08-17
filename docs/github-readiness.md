@@ -2,6 +2,8 @@
 
 This repository is intentionally publishable before empirical results exist.
 
+Read [STATUS.md](../STATUS.md) first for the current commit, completed work, next task, and remaining gates.
+
 ## Included
 
 - Clear local-first execution policy
