@@ -99,7 +99,11 @@ def make_llm(model_id: str):
         model=model_id,
         temperature=0,
         timeout=30,
-        max_retries=4,
+        # Raised from 4: six mini-gate attempts showed noisy, non-monotonic rate-limiting
+        # on openai/gpt-oss-120b (330/330/475/410/314/480 rate-limited per 500-call scan).
+        # 4 retries with exponential backoff totals well under a minute of wait before
+        # giving up; 10 gives far more time to ride through a short throttling window.
+        max_retries=10,
         rate_limiter=GROQ_LIMITER,
         **model_response_options(model_id),
     )
