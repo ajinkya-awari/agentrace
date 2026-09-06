@@ -1,0 +1,84 @@
+{
+  "environment": {
+    "packages": {
+      "langchain-core": "1.6.2",
+      "langchain-groq": "1.1.3",
+      "langgraph": "1.2.11",
+      "pytest": "8.4.2"
+    },
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35"
+  },
+  "failure_summary": null,
+  "matrix_diagnostics": [
+    {
+      "category": "ok",
+      "code": null,
+      "http_status": null,
+      "model": "openai/gpt-oss-120b",
+      "parameter": null,
+      "profile": "reasoning_low_same_budget_32",
+      "provider_type": null,
+      "status": "pass"
+    },
+    {
+      "category": "ok",
+      "code": null,
+      "http_status": null,
+      "model": "openai/gpt-oss-120b",
+      "parameter": null,
+      "profile": "reasoning_low_larger_budget_256",
+      "provider_type": null,
+      "status": "pass"
+    },
+    {
+      "category": "ok",
+      "code": null,
+      "http_status": null,
+      "model": "openai/gpt-oss-120b",
+      "parameter": null,
+      "profile": "no_reasoning_larger_budget_256",
+      "provider_type": null,
+      "status": "pass"
+    },
+    {
+      "category": "ok",
+      "code": null,
+      "http_status": null,
+      "model": "openai/gpt-oss-20b",
+      "parameter": null,
+      "profile": "reasoning_low_same_budget_32",
+      "provider_type": null,
+      "status": "pass"
+    },
+    {
+      "category": "ok",
+      "code": null,
+      "http_status": null,
+      "model": "openai/gpt-oss-20b",
+      "parameter": null,
+      "profile": "reasoning_low_larger_budget_256",
+      "provider_type": null,
+      "status": "pass"
+    },
+    {
+      "category": "ok",
+      "code": null,
+      "http_status": null,
+      "model": "openai/gpt-oss-20b",
+      "parameter": null,
+      "profile": "no_reasoning_larger_budget_256",
+      "provider_type": null,
+      "status": "pass"
+    }
+  ],
+  "python_version": "3.12.13",
+  "source_identifier": "working-tree:unavailable",
+  "stage": "gpt_oss_fix_verification",
+  "status": "pass",
+  "test_counts": {
+    "calls": 6,
+    "failed": 0,
+    "passed": 6
+  },
+  "timestamp_utc": "2026-09-06T07:39:29.908057+00:00"
+}

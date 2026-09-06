@@ -1,0 +1,53 @@
+{
+  "contract": {
+    "cache_version": "json-answer-v1",
+    "model_ids": {
+      "gpt-oss-120b": "openai/gpt-oss-120b",
+      "gpt-oss-20b": "openai/gpt-oss-20b",
+      "qwen-3.6-27b": "qwen/qwen3.6-27b"
+    },
+    "request_profiles": {
+      "gpt-oss-120b": "json_object_gpt_oss_reasoning_low",
+      "gpt-oss-20b": "json_object_gpt_oss_reasoning_low",
+      "qwen-3.6-27b": "json_object_qwen_hidden_reasoning"
+    },
+    "response_contract": "json-answer-v1"
+  },
+  "environment": {
+    "packages": {
+      "langchain-core": "1.6.2",
+      "langchain-groq": "1.1.3",
+      "langgraph": "1.2.11",
+      "pytest": "8.4.2"
+    },
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35"
+  },
+  "failure_summary": null,
+  "probe_diagnostics": {
+    "gpt-oss-120b": {
+      "calls": 1,
+      "category": "ok",
+      "status": "pass"
+    },
+    "gpt-oss-20b": {
+      "calls": 1,
+      "category": "ok",
+      "status": "pass"
+    },
+    "qwen-3.6-27b": {
+      "calls": 1,
+      "category": "ok",
+      "status": "pass"
+    }
+  },
+  "python_version": "3.12.13",
+  "source_identifier": "working-tree:unavailable",
+  "stage": "response_contract_probe",
+  "status": "pass",
+  "test_counts": {
+    "failed": 0,
+    "models": 3,
+    "passed": 3
+  },
+  "timestamp_utc": "2026-09-06T07:39:40.444591+00:00"
+}

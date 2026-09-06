@@ -1,0 +1,104 @@
+{
+  "environment": {
+    "packages": {
+      "langchain-core": "1.6.2",
+      "langchain-groq": "1.1.3",
+      "langgraph": "1.2.11",
+      "pytest": "8.4.2"
+    },
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35"
+  },
+  "failure_summary": "failure details withheld; inspect the notebook console",
+  "matrix_diagnostics": [
+    {
+      "category": "ok",
+      "code": null,
+      "http_status": null,
+      "model": "openai/gpt-oss-120b",
+      "parameter": null,
+      "profile": "direct_plain_max_completion_tokens_16",
+      "provider_type": null,
+      "status": "pass"
+    },
+    {
+      "category": "invalid_request",
+      "code": "json_validate_failed",
+      "http_status": 400,
+      "model": "openai/gpt-oss-120b",
+      "parameter": null,
+      "profile": "direct_json_max_completion_tokens_32",
+      "provider_type": "invalid_request_error",
+      "status": "fail"
+    },
+    {
+      "category": "invalid_request",
+      "code": "json_validate_failed",
+      "http_status": 400,
+      "model": "openai/gpt-oss-120b",
+      "parameter": null,
+      "profile": "direct_json_max_tokens_32",
+      "provider_type": "invalid_request_error",
+      "status": "fail"
+    },
+    {
+      "category": "invalid_request",
+      "code": "json_validate_failed",
+      "http_status": 400,
+      "model": "openai/gpt-oss-120b",
+      "parameter": null,
+      "profile": "chatgroq_json_max_completion_tokens_32",
+      "provider_type": "invalid_request_error",
+      "status": "fail"
+    },
+    {
+      "category": "ok",
+      "code": null,
+      "http_status": null,
+      "model": "openai/gpt-oss-20b",
+      "parameter": null,
+      "profile": "direct_plain_max_completion_tokens_16",
+      "provider_type": null,
+      "status": "pass"
+    },
+    {
+      "category": "invalid_request",
+      "code": "json_validate_failed",
+      "http_status": 400,
+      "model": "openai/gpt-oss-20b",
+      "parameter": null,
+      "profile": "direct_json_max_completion_tokens_32",
+      "provider_type": "invalid_request_error",
+      "status": "fail"
+    },
+    {
+      "category": "invalid_request",
+      "code": "json_validate_failed",
+      "http_status": 400,
+      "model": "openai/gpt-oss-20b",
+      "parameter": null,
+      "profile": "direct_json_max_tokens_32",
+      "provider_type": "invalid_request_error",
+      "status": "fail"
+    },
+    {
+      "category": "invalid_request",
+      "code": "json_validate_failed",
+      "http_status": 400,
+      "model": "openai/gpt-oss-20b",
+      "parameter": null,
+      "profile": "chatgroq_json_max_completion_tokens_32",
+      "provider_type": "invalid_request_error",
+      "status": "fail"
+    }
+  ],
+  "python_version": "3.12.13",
+  "source_identifier": "working-tree:unavailable",
+  "stage": "gpt_oss_request_matrix",
+  "status": "fail",
+  "test_counts": {
+    "calls": 8,
+    "failed": 6,
+    "passed": 2
+  },
+  "timestamp_utc": "2026-09-06T07:39:25.773471+00:00"
+}
