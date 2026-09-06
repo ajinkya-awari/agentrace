@@ -1,4 +1,6 @@
 .env
+.groq_key_private
+notebooks/.groq_key_private
 *.db
 __pycache__/
 *.py[cod]
@@ -8,5 +10,6 @@ __pycache__/
 study/results/*.jsonl
 study/results/*.json
 study/results/*.png
+docs/evidence/runtime-*.json
 wandb/
 .ipynb_checkpoints/

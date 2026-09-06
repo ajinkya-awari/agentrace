@@ -1,0 +1,24 @@
+AgentTrace source static evidence
+Date: 2026-08-21
+Workspace: E:\application\MS CS\portfolio-projects\agentrace
+Device: local Windows source workspace; GPU not used
+Python: 3.11.9
+Git HEAD before this change: 7076e1a62d78872369dd6614a68b2962c1b35913
+
+Checks:
+- AST parsing: PASS; 24 Python files parsed successfully.
+- Required source inventory: PASS; 31 required files present.
+- api sqlite import scan: PASS; 0 synchronous sqlite3 imports.
+- Secret-shape scan: PASS; 0 credential-shaped matches.
+- Generated artifact scan: PASS; 0 jsonl/png/db/model artifact files present.
+- git diff --check: PASS.
+- Runtime tests: NOT RUN; local-first policy reserves pytest for the guarded notebook.
+- Dependency installation: NOT RUN.
+- Dataset/provider/benchmark calls: NOT RUN.
+- GPU/Kaggle/Colab: NOT RUN.
+
+Changed-file SHA-256:
+- study/run_study.py: 4DC62BAFCC5679F615876FA58E3A52E3C9BCDAFE31A5185E9E60157E02F1BB15
+- tests/test_study_contract.py: 478FB3B95DDDBDB5F5056D75B7C0565B4EC2B907EF09188D4036C82E3767A1C4
+
+Evidence artifact path: docs/evidence/2026-08-21-source-static.txt

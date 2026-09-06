@@ -1,0 +1,35 @@
+AgentTrace local handoff-hardening evidence
+Date: 2026-08-21
+Workspace: E:\application\MS CS\portfolio-projects\agentrace
+Device: local Windows source workspace; GPU not used
+Python: 3.11.9
+Git HEAD: 7076e1a62d78872369dd6614a68b2962c1b35913
+Working tree: modified; changes listed in the reviewed diff and not committed
+
+Verification:
+- Targeted handoff tests: PASS; 12 passed in 0.84s.
+- Full synthetic suite: PASS; 28 passed in 2.18s.
+- AST parsing: PASS; 26 Python files.
+- Secret-shape scan: PASS; 0 matches.
+- Generated artifact scan: PASS; 0 jsonl/png/db/model files.
+- api sqlite import scan: PASS; 0 synchronous sqlite3 imports.
+- git diff --check: PASS.
+- Dataset download, provider/API calls, Kaggle/Colab, GPU, W&B, Hugging Face, uploads,
+  deployment, email, Git commit, and Git push: NOT RUN.
+
+Hardening behavior verified with synthetic fixtures:
+- `--mini-gate-only` returns after the 45-call mini-gate and does not invoke the full benchmark.
+- A live mini-gate refuses without valid passing tracer-smoke evidence.
+- Synthetic validation is provider-free and writes sanitized evidence.
+- Tracer smoke evidence contains counts only and no trace payload.
+- Full execution reuses mini-gate cache entries with `resume=True`.
+
+SHA-256:
+- agentrace/evidence.py: 628028D14271ED440F15365A0DAA43B8E05F460B16591DFBA9A38A1F147A16BE
+- agentrace/patterns.py: 4653774B772C277E4D8D5EC11E4280C17ADB060F520BD9B5D95FC44B573D58ED
+- api/database.py: C8279841A758F9B9DAE5E653B00D9E6494848C1EE67A632B3615B81245530324
+- notebooks/runtime_validation.py: C690DE2EC21A449BD7C82255D5B153CA8BD7A1CA6CE9D86CF846D34C566B64CA
+- examples/medical_agent_audit.py: E8AE3D362AE55E28DD045AB313299DD01074455AC64BCB867DB6D7E125B9E3B5
+- study/run_study.py: 9FF946D2AD3865DE233AF9AD812F8A38714A8C4E18E83F6A2735B277D52C9094
+
+Runtime evidence filename pattern: docs/evidence/runtime-YYYYMMDDTHHMMSSZ-{stage}.json

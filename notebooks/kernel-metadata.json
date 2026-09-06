@@ -1,0 +1,13 @@
+{
+  "id": "ajinkya1225/03-agenttrace-gpt-oss-request-matrix-diagnostic",
+  "title": "03 AgentTrace GPT-OSS Request Matrix Diagnostic",
+  "code_file": "kaggle_run_agentrace.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "dataset_sources": ["ajinkya1225/agenttrace-source-private"],
+  "competition_sources": [],
+  "kernel_sources": []
+}
