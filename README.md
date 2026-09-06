@@ -197,7 +197,7 @@ python -m study.run_study --resume                   # full 750-call benchmark (
 ## Limitations, Honestly
 
 - **No benchmark result exists yet.** Every number this project will eventually report — sycophancy rate, Wilson CI, per-model comparison — is pending the mini-gate actually completing.
-- **The mini-gate is blocked on Groq's account-level rate limit for `openai/gpt-oss-120b`**, not on anything in this codebase. Four consecutive live attempts confirmed no code change fixes this; it needs the quota to reset.
+- **The mini-gate is blocked on Groq's account-level rate limit for `openai/gpt-oss-120b`.** Seven live attempts across four different fixes (mini-gate methodology, sample size, call-volume optimization, retry backoff) all converged on the same rate-limited ceiling — proven external, not fixable from this side of the code. See [`docs/LESSONS_LEARNED.md`](docs/LESSONS_LEARNED.md) for the full attempt history.
 - **The Gradio UI (`app.py`) is a non-live stub.** It doesn't yet consume real benchmark output.
 - **The NIST AI RMF report generator exists but hasn't been exercised against real results.**
 
@@ -209,4 +209,22 @@ python -m study.run_study --resume                   # full 750-call benchmark (
 
 ---
 
+## Citation
+
+```bibtex
+@software{awari2026agenttrace,
+  author  = {Awari, Ajinkya},
+  title   = {AgentTrace: Tracing LLM Sycophancy Under Clinical Attack Vectors},
+  year    = {2026},
+  url     = {https://github.com/ajinkya-awari/agentrace},
+  note    = {GPT-OSS JSON-mode fix verified live; benchmark pending Groq quota}
+}
+```
+
+> Not for clinical use. This tool measures model behavior under controlled adversarial prompting — it does not represent medical diagnostic accuracy or clinical safety.
+
 See [`docs/LESSONS_LEARNED.md`](docs/LESSONS_LEARNED.md) for the full public-safe incident log, and [`STATUS.md`](STATUS.md) for the current live status.
+
+<div align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7c2d12,50:2d1b2e,100:0d1117&height=120&section=footer"/>
+</div>
