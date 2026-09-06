@@ -1,13 +1,32 @@
 # AgentTrace source status
 
-**Audit date:** 2026-08-29
-**Status label:** **BLOCKED**
-**Overall completion:** **58%** portfolio readiness
-**Confidence:** Medium overall; high for static source state, lower for live provider/runtime state.
+**Audit date:** 2026-09-07
+**Status label:** **GPT-OSS fix verified and live on GitHub; mini-gate blocked on external Groq rate limit**
+**Overall completion:** **68%** portfolio readiness
+**Confidence:** High for the fix and all code changes (live-verified); the mini-gate blocker is
+proven external (Groq rate/quota ceiling for `openai/gpt-oss-120b`), not a code defect.
 
-This is the runtime source repository for Project 03. The planning/control authority is the sibling folder:
+**Public repository:** https://github.com/ajinkya-awari/agentrace (renamed from the earlier
+`-agentrace`). README rewritten with the real V1-V21 Kaggle debugging journey, honest current
+status, LICENSE added, sanitized dated evidence checked into `docs/evidence/`.
 
-`E:\application\MS CS\portfolio-projects\03-agentrace`
+This is the runtime source repository for Project 03. The planning/control authority with full
+attempt-by-attempt detail is the sibling folder:
+
+`E:\application\MS CS\portfolio-projects\03-agentrace` (see `STATUS.md`, `HANDOVER.md`,
+`NEXT_SESSION_HANDOFF.md` there for the complete seven-attempt mini-gate history).
+
+## What changed since the 2026-08-29 audit
+
+- GPT-OSS JSON Object Mode bug isolated, fixed (`reasoning_effort="low"`), and verified through
+  the real production `make_llm` path (3/3 models pass).
+- Tracer smoke passes live.
+- Mini-gate methodology corrected (false zero-rate guard removed, sample size raised, baseline-scan
+  call volume optimized) — but the mini-gate itself has not passed. Seven live attempts all hit the
+  same Groq-side rate limit for `openai/gpt-oss-120b`; a `max_retries` increase (4→10) proved this
+  is not client-side-fixable.
+- Full offline test suite: 76/76 passing.
+- Pushed to GitHub with a rewritten, honest README.
 
 ## Current implementation state
 
