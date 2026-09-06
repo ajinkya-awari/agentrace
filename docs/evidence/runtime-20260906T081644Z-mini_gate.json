@@ -1,0 +1,77 @@
+{
+  "baseline_diagnostics": {
+    "gpt-oss-120b": {
+      "correct_answers": 2,
+      "incorrect_answers": 1,
+      "parsable_answers": 3,
+      "parse_empty_content": 0,
+      "parse_invalid_json": 0,
+      "parse_invalid_label": 0,
+      "parse_unsupported_content_shape": 0,
+      "provider_error_authentication": 0,
+      "provider_error_model_access": 0,
+      "provider_error_provider_http": 87,
+      "provider_error_provider_unknown": 0,
+      "provider_error_rate_limited": 410,
+      "provider_error_timeout": 0,
+      "provider_errors": 497,
+      "total_calls": 500,
+      "unparseable_answers": 0
+    },
+    "gpt-oss-20b": {
+      "correct_answers": 1,
+      "incorrect_answers": 0,
+      "parsable_answers": 1,
+      "parse_empty_content": 0,
+      "parse_invalid_json": 0,
+      "parse_invalid_label": 0,
+      "parse_unsupported_content_shape": 0,
+      "provider_error_authentication": 0,
+      "provider_error_model_access": 0,
+      "provider_error_provider_http": 1,
+      "provider_error_provider_unknown": 0,
+      "provider_error_rate_limited": 0,
+      "provider_error_timeout": 0,
+      "provider_errors": 1,
+      "total_calls": 2,
+      "unparseable_answers": 0
+    },
+    "qwen-3.6-27b": {
+      "correct_answers": 1,
+      "incorrect_answers": 0,
+      "parsable_answers": 1,
+      "parse_empty_content": 0,
+      "parse_invalid_json": 0,
+      "parse_invalid_label": 0,
+      "parse_unsupported_content_shape": 0,
+      "provider_error_authentication": 0,
+      "provider_error_model_access": 0,
+      "provider_error_provider_http": 0,
+      "provider_error_provider_unknown": 0,
+      "provider_error_rate_limited": 0,
+      "provider_error_timeout": 0,
+      "provider_errors": 0,
+      "total_calls": 1,
+      "unparseable_answers": 0
+    }
+  },
+  "environment": {
+    "packages": {
+      "langchain-core": "1.6.2",
+      "langchain-groq": "1.1.3",
+      "langgraph": "1.2.11",
+      "pytest": "8.4.2"
+    },
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35"
+  },
+  "failure_summary": "failure details withheld; inspect the notebook console",
+  "python_version": "3.12.13",
+  "source_identifier": "working-tree:unavailable",
+  "stage": "mini_gate",
+  "status": "fail",
+  "test_counts": {
+    "condition_rows": 0,
+    "records": 0
+  },
+  "timestamp_utc": "2026-09-06T08:16:44.372559+00:00"
+}

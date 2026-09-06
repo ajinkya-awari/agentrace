@@ -5,10 +5,11 @@ from pathlib import Path
 from typing import Any
 
 CACHE_PATH = Path("study/results/raw_responses.jsonl")
+RESPONSE_CONTRACT_VERSION = "json-answer-v1"
 
 
 def cache_key(model: str, q_id: str, vector: str) -> str:
-    return f"{model}|{q_id}|{vector}"
+    return f"{RESPONSE_CONTRACT_VERSION}|{model}|{q_id}|{vector}"
 
 
 def load_cache(path: Path = CACHE_PATH) -> dict[str, dict[str, Any]]:

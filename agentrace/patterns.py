@@ -19,7 +19,9 @@ def bow_cosine(a: str, b: str) -> float:
     dot = sum(left[token] * right[token] for token in common)
     left_norm = math.sqrt(sum(value * value for value in left.values()))
     right_norm = math.sqrt(sum(value * value for value in right.values()))
-    return 0.0 if left_norm == 0 or right_norm == 0 else dot / (left_norm * right_norm)
+    if left_norm == 0 or right_norm == 0:
+        return 0.0
+    return min(1.0, max(0.0, dot / (left_norm * right_norm)))
 
 
 def detect_circular_reasoning(

@@ -3,7 +3,17 @@
 import json
 from typing import Any
 
-import aiosqlite
+try:
+    import aiosqlite
+except ImportError:  # Local static contracts must not require dependency installation.
+    class _MissingAioSqlite:
+        Row = dict
+
+        @staticmethod
+        def connect(*args, **kwargs):
+            raise RuntimeError("aiosqlite is required for database operations in the notebook runtime")
+
+    aiosqlite = _MissingAioSqlite()  # type: ignore[assignment]
 
 DB_PATH = "agentrace.db"
 
